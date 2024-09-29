@@ -165,7 +165,7 @@ class SplashWindow(CTkToplevel):
 
 
             target_progressbar_widget.set(eased_progress)
-            self.update_idletasks()
+            self.update()
 
             if elapsed_time >= DURATION:
                 break
