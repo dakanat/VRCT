@@ -17,7 +17,7 @@ class _CreateWindowCover(CTkToplevel):
 
         self.title("")
         self.overrideredirect(True)
-        self.wm_attributes("-toolwindow", True)
+        # self.wm_attributes("-toolwindow", True)
         self.configure(fg_color=self.settings.ctm.BG_COLOR)
         self.protocol("WM_DELETE_WINDOW", lambda: self.withdraw())
 

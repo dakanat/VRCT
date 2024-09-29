@@ -17,7 +17,7 @@ class _CreateConfirmationModal(CTkToplevel):
 
         self.title("")
         self.overrideredirect(True)
-        self.wm_attributes("-toolwindow", True)
+        # self.wm_attributes("-toolwindow", True)
 
         self.BIND_FOCUS_OUT_FUNC_ID=None
 

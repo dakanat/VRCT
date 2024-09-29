@@ -51,7 +51,7 @@ class _CreateNotificationWindow(CTkToplevel):
         self.overrideredirect(True)
 
         self.wm_attributes("-alpha", 0)
-        self.wm_attributes("-toolwindow", True)
+        # self.wm_attributes("-toolwindow", True)
 
 
         self.grid_rowconfigure(0,weight=1)

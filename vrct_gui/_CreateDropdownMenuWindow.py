@@ -84,7 +84,7 @@ class _CreateDropdownMenuWindow(CTkToplevel):
         self.overrideredirect(True)
 
         self.wm_attributes("-alpha", 0)
-        self.wm_attributes("-toolwindow", True)
+        # self.wm_attributes("-toolwindow", True)
 
         self.configure(fg_color=self.window_bg_color)
         self.resizable(width=False, height=False)
