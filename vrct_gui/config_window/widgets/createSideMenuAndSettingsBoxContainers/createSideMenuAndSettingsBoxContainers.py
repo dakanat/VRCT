@@ -41,14 +41,14 @@ def createSideMenuAndSettingsBoxContainers(config_window, settings, view_variabl
 
     # Setting box container
     config_window.main_bg_container.grid_rowconfigure(1, weight=1)
-    config_window.main_setting_box_scrollable_container = CustomizedCTkScrollableFrame(config_window.main_bg_container, corner_radius=0, fg_color=settings.ctm.MAIN_BG_COLOR)
+    config_window.main_setting_box_scrollable_container = CTkFrame(config_window.main_bg_container, corner_radius=0, fg_color=settings.ctm.MAIN_BG_COLOR, width=0, height=0)
     config_window.main_setting_box_scrollable_container.grid(row=1, column=0, sticky="nsew")
 
-    applyUiScalingAndFixTheBugScrollBar(
-        scrollbar_widget=config_window.main_setting_box_scrollable_container,
-        padx=settings.uism.SCROLLBAR_IPADX,
-        width=settings.uism.SCROLLBAR_WIDTH,
-    )
+    # applyUiScalingAndFixTheBugScrollBar(
+    #     scrollbar_widget=config_window.main_setting_box_scrollable_container,
+    #     padx=settings.uism.SCROLLBAR_IPADX,
+    #     width=settings.uism.SCROLLBAR_WIDTH,
+    # )
 
 
     config_window.main_setting_box_bg_wrapper = CTkFrame(config_window.main_setting_box_scrollable_container, corner_radius=0, width=0, height=0, fg_color=settings.ctm.MAIN_BG_COLOR)

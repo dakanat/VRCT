@@ -48,7 +48,7 @@ def _addConfigSideMenuItem(config_window, settings, view_variable, side_menu_set
         config_window.current_active_setting_box_container.grid()
 
         # Move to the top position when the setting box is switched.
-        config_window.main_setting_box_scrollable_container._parent_canvas.yview_moveto("0")
+        # config_window.main_setting_box_scrollable_container._parent_canvas.yview_moveto("0")
 
 
     def switchToTargetSettingBoxContainer(textvariable, target_active_tab_widget_attr_name, target_setting_box_container_attr_name):

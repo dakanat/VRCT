@@ -92,7 +92,8 @@ class _CreateDropdownMenuWindow(CTkToplevel):
 
 
     def updateDropdownMenuValues(self, dropdown_menu_widget_id, dropdown_menu_values:Union[dict, list],):
-        self.dropdown_menu_widgets[dropdown_menu_widget_id].widget.destroy()
+        # self.dropdown_menu_widgets[dropdown_menu_widget_id].widget.destroy()
+        self.dropdown_menu_widgets[dropdown_menu_widget_id].widget.quit()
         self.createDropdownMenuBox(
             dropdown_menu_widget_id=dropdown_menu_widget_id,
             dropdown_menu_values=dropdown_menu_values,
@@ -122,7 +123,7 @@ class _CreateDropdownMenuWindow(CTkToplevel):
 
 
         BORDER_WIDTH=self.window_border_width
-        self.scroll_frame_container = CustomizedCTkScrollableFrame(
+        self.scroll_frame_container = CTkFrame(
             self.dropdown_menu_container,
             corner_radius=0,
             fg_color=self.window_bg_color,
@@ -136,14 +137,14 @@ class _CreateDropdownMenuWindow(CTkToplevel):
 
 
         self._createDropdownMenuValues(dropdown_menu_widget_id, dropdown_menu_values, command)
+        # applyUiScalingAndFixTheBugScrollBar(
+        #     scrollbar_widget=self.scroll_frame_container,
+        #     padx=self.scrollbar_ipadx,
+        #     width=self.scrollbar_width,
+        # )
 
-        applyUiScalingAndFixTheBugScrollBar(
-            scrollbar_widget=self.scroll_frame_container,
-            padx=self.scrollbar_ipadx,
-            width=self.scrollbar_width,
-        )
-
-        geometry_width = int(self.new_width + self.scroll_frame_container._scrollbar.winfo_width() + (BORDER_WIDTH*2) + (self.scrollbar_ipadx[0] + self.scrollbar_ipadx[1]))
+        # geometry_width = int(self.new_width + self.scroll_frame_container._scrollbar.winfo_width() + (BORDER_WIDTH*2) + (self.scrollbar_ipadx[0] + self.scrollbar_ipadx[1]))
+        geometry_width = int(self.new_width + (BORDER_WIDTH*2))
         geometry_height = int(self.new_height + (BORDER_WIDTH*2))
 
         self.dropdown_menu_widgets[dropdown_menu_widget_id] = SimpleNamespace()
@@ -172,8 +173,7 @@ class _CreateDropdownMenuWindow(CTkToplevel):
             longest_text = getLongestText(dropdown_menu_values)
         elif isinstance(dropdown_menu_values, dict):
             longest_text = getLongestText_Dict(dropdown_menu_values)
-
-        self.dropdown_menu_values_wrapper = CTkFrame(self.scroll_frame_container, corner_radius=0, fg_color=self.window_bg_color)
+        self.dropdown_menu_values_wrapper = CTkFrame(self.scroll_frame_container, corner_radius=0, fg_color=self.window_bg_color, width=0, height=0)
         self.dropdown_menu_values_wrapper.grid(row=0, column=0, sticky="nsew")
         self.dropdown_menu_values_wrapper.grid_columnconfigure(0, weight=1)
 
@@ -198,7 +198,7 @@ class _CreateDropdownMenuWindow(CTkToplevel):
 
         label_height = getLatestHeight(__dropdown_menu_value_wrapper)
         label_width = getLatestWidth(__label_widget)
-        label_width += self.scroll_frame_container._scrollbar.winfo_width() + (self.window_border_width*2) + (self.scrollbar_ipadx[0] + self.scrollbar_ipadx[1])
+        # label_width += self.scroll_frame_container._scrollbar.winfo_width() + (self.window_border_width*2) + (self.scrollbar_ipadx[0] + self.scrollbar_ipadx[1])
         if label_width > self.new_width:
             additional_width = int(label_width - self.new_width + self.settings.uism.MARGIN_WIDTH)
             self.new_width += additional_width
