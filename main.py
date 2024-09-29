@@ -1,7 +1,11 @@
+import os
+
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
+
 if __name__ == "__main__":
     try:
-        import ctypes
-        ctypes.windll.shcore.SetProcessDpiAwareness(0)
+        # import ctypes
+        # ctypes.windll.shcore.SetProcessDpiAwareness(0)
 
         from vrct_gui.splash_window import SplashWindow
         splash = SplashWindow()
@@ -29,5 +33,6 @@ if __name__ == "__main__":
 
     except Exception:
         import traceback
+        traceback.print_exc()
         with open('error.log', 'a') as f:
             traceback.print_exc(file=f)
