@@ -1,5 +1,5 @@
 from speech_recognition import Recognizer, Microphone
-from pyaudiowpatch import get_sample_size, paInt16
+from pyaudio import get_sample_size, paInt16
 from datetime import datetime
 from queue import Queue
 

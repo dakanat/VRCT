@@ -4,7 +4,7 @@ from threading import Event
 import wave
 from speech_recognition import Recognizer, AudioData, AudioFile
 from datetime import timedelta
-from pyaudiowpatch import get_sample_size, paInt16
+from pyaudio import get_sample_size, paInt16
 from .transcription_languages import transcription_lang
 from .transcription_whisper import getWhisperModel, checkWhisperWeight
 
